@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Arcade Quiz</title>
+        <link rel="icon" href="/img/img1.png">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="../../public/js/app.js"></script>
+    </head>
+    <body>
+        <div>
+            {{>header}}
+        </div>
+
+        <section id="candidate-result" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Your Result</h2>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{percentage}}%;" aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100">{{percentage}}%</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-5">
+                <section class="bg-light py-5">
+                    <div class="container">
+                        <h2 class="text-center mb-4">Leaderboard</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>John Doe</td>
+                                        <td>90%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jane Smith</td>
+                                        <td>80%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>John Doe</td>
+                                        <td>90%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Jane Smith</td>
+                                        <td>80%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-5">
+                <section id="answers" class="bg-light py-5">
+                    <div class="container">
+                        <h2 class="text-center mb-4">Correct Answers and Your Responses</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Question</th>
+                                        <th>Correct Answer</th>
+                                        <th>Your Answer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Question 1</td>
+                                        <td>Option A</td>
+                                        <td>Option A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Question 2</td>
+                                        <td>Option B</td>
+                                        <td>Option C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Question 3</td>
+                                        <td>Option C</td>
+                                        <td>Option C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Question 1</td>
+                                        <td>Option A</td>
+                                        <td>Option A</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+        <div>
+            {{>footer}}
+        </div>
+    </body>
+</html>

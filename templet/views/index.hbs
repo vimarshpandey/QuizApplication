@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Arcade Quiz</title>
+        <link rel="icon" href="/img/img1.png">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="../../public/js/app.js"></script>
+    </head>
+    <body>
+        <div>
+            {{>header}}
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-5">
+                <img src="/img/img1.png" height="500px">
+            </div>
+            <div class="col-5">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <form action="startquiz">
+                            <div class="fs-3 fw-bold p-3">
+                                Introduction
+                            </div>
+                            <div class="p-3">
+                                <div class="text-center fs-5">Welcome to our interactive quiz platform, where knowledge meets fun! Embark on a journey of discovery and challenge yourself with a diverse range of quizzes.</div><br>
+                                <div class="row justify-content-center align-items-center p-3">
+                                    <div class="col-auto">
+                                        <label for="name" class="form-label">Your Name:</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Ex. Jhon Doe" required>
+                                    </div>
+                                </div>
+                                <div class="text-center">Excited to give the Quiz 😊</div><br>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Start Quiz</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="text-center p-3 fs-6">We're passionate about creating an engaging environment where users can embark on a journey of learning and exploration. From trivia buffs to eager learners, our diverse range of quizzes caters to all interests and levels of expertise.</div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div>
+            {{>footer}}
+        </div>
+    </body>
+</html>

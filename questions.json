@@ -1,0 +1,57 @@
+[
+    {
+        "question": "What is the capital of India?",
+        "options": [
+            "1. Tokyo",
+            "2. New Delhi",
+            "3. Berlin",
+            "4. Paris"
+        ],
+        "correctAns": 2,
+        "hint": "Hint for question 1"
+    },
+    {
+        "question": "What is the capital of France?",
+        "options": [
+            "1. Tokyo",
+            "2. New Delhi",
+            "3. Berlin",
+            "4. Paris"
+        ],
+        "correctAns": 4,
+        "hint": "Hint for question 2"
+    },
+    {
+        "question": "What is the capital of United States?",
+        "options": [
+            "1. Washington D.C.",
+            "2. New Delhi",
+            "3. Berlin",
+            "4. Paris"
+        ],
+        "correctAns": 1,
+        "hint": "Hint for question 3"
+    },
+    {
+        "question": "Which language is not an object oriented pogramming lnguage?",
+        "options": [
+            "1. C++",
+            "2. Java",
+            "3. C",
+            "4. Python"
+        ],
+        "correctAns": 3,
+        "hint": "Hint for question 4"
+    },
+    {
+        "question": "Which language is not an object oriented pogramming lnguage?",
+        "options": [
+            "1. C++",
+            "2. Java",
+            "3. C",
+            "4. PYthon"
+        ],
+        "correctAns": 3,
+        "hint": "Hint for question 4"
+    }
+]

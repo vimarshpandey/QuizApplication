@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>Arcade Quiz</title>
+    <link rel="icon" href="/img/img1.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="../../public/js/app.js"></script>
+</head>
+<body>
+    <div>
+        {{>header}}
+    </div>
+    <div class="container">
+        <form action="result">
+            <div class="fs-3 fw-bold p-3">
+                Quiz
+            </div>
+
+            <div class="row">
+                <div class="col-7">
+                    {{#each jsonData}}
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="question">
+                                    <p>{{ this.question }}</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="q{{ @index }}" id="q{{ @index }}_option1" value="{{ this.options.[0] }}" required>
+                                        <label class="form-check-label" for="q{{ @index }}_option1">{{ this.options.[0] }}</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="q{{ @index }}" id="q{{ @index }}_option2" value="{{ this.options.[1] }}" required>
+                                        <label class="form-check-label" for="q{{ @index }}_option2">{{ this.options.[1] }}</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="q{{ @index }}" id="q{{ @index }}_option3" value="{{ this.options.[2] }}" required>
+                                        <label class="form-check-label" for="q{{ @index }}_option3">{{ this.options.[2] }}</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="q{{ @index }}" id="q{{ @index }}_option4" value="{{ this.options.[3] }}" required>
+                                        <label class="form-check-label" for="q{{ @index }}_option4">{{ this.options.[3] }}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+                <div class="col-5">
+                    {{#each jsonData}}
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <p>Hint for Question {{ @index }}:</p>
+                                <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#hint{{ @index }}" aria-expanded="false" aria-controls="hint{{ @index }}">
+                                    Get Hint
+                                </button><br><br>
+                                <div class="collapse" id="hint{{ @index }}">
+                                    <div class="card card-body">
+                                        {{ this.hint }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <input type="hidden" id="hiddenName" name="hiddenName">
+
+            <br><button type="submit" class="btn btn-primary">Submit Quiz</button>
+        </form>
+    </div>
+    <div>
+        {{>footer}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Function to get URL parameter by name
+        function getUrlParameter(name) {
+            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // Get the name parameter from the URL
+        var nameFromURL = getUrlParameter('name');
+        console.log(nameFromURL)
+
+        // Set the value of the hidden input field
+        document.getElementById('hiddenName').value = nameFromURL;
+    </script>
+</body>
+</html>
