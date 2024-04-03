@@ -53,5 +53,16 @@
         ],
         "correctAns": 3,
         "hint": "Hint for question 4"
+    },
+    {
+        "question": "What is the capital of India?",
+        "options": [
+            "1. Tokyo",
+            "2. New Delhi",
+            "3. Berlin",
+            "4. Paris"
+        ],
+        "correctAns": 2,
+        "hint": "Hint for question 1"
     }
 ]
