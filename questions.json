@@ -8,7 +8,8 @@
             "4. Paris"
         ],
         "correctAns": 2,
-        "hint": "Hint for question 1"
+        "hint": "Known for its iconic Red Fort and India Gate",
+        "level": "Easy"
     },
     {
         "question": "What is the capital of France?",
@@ -19,7 +20,8 @@
             "4. Paris"
         ],
         "correctAns": 4,
-        "hint": "Hint for question 2"
+        "hint": "Home to the Louvre Museum and Notre-Dame Cathedral",
+        "level": "Medium"
     },
     {
         "question": "What is the capital of United States?",
@@ -30,10 +32,11 @@
             "4. Paris"
         ],
         "correctAns": 1,
-        "hint": "Hint for question 3"
+        "hint": "The location of the White House and the Capitol Building",
+        "level": "Medium"
     },
     {
-        "question": "Which language is not an object oriented pogramming lnguage?",
+        "question": "Which language is not an object-oriented programming language?",
         "options": [
             "1. C++",
             "2. Java",
@@ -41,28 +44,79 @@
             "4. Python"
         ],
         "correctAns": 3,
-        "hint": "Hint for question 4"
+        "hint": "Widely used for system programming and lacks classes/objects",
+        "level": "Easy"
     },
     {
-        "question": "Which language is not an object oriented pogramming lnguage?",
+        "question": "Which of the following is not a variable type in C programming?",
         "options": [
-            "1. C++",
-            "2. Java",
-            "3. C",
-            "4. PYthon"
+            "1. Float",
+            "2. Int",
+            "3. While Loop",
+            "4. All of the above"
         ],
         "correctAns": 3,
-        "hint": "Hint for question 4"
+        "hint": "A control structure used for looping, not a variable type",
+        "level": "Hard"
     },
     {
-        "question": "What is the capital of India?",
+        "question": "How many keywords are there in Python?",
         "options": [
-            "1. Tokyo",
-            "2. New Delhi",
-            "3. Berlin",
-            "4. Paris"
+            "1. 35",
+            "2. 42",
+            "3. 12",
+            "4. 63"
+        ],
+        "correctAns": 1,
+        "hint": "Fundamental to Python's syntax and reserved words",
+        "level": "Medium"
+    },
+    {
+        "question": "What is the value of x in the equation 3x – 15 – 6 = 0?",
+        "options": [
+            "1. Six",
+            "2. Seven",
+            "3. Eight",
+            "4. Nine"
         ],
         "correctAns": 2,
-        "hint": "Hint for question 1"
+        "hint": "Solve for x using basic algebra",
+        "level": "Medium"
+    },
+    {
+        "question": "Find the missing terms in multiples of 3: 3, 6, 9, __, 15",
+        "options": [
+            "1. 10",
+            "2. 15",
+            "3. 18",
+            "4. 12"
+        ],
+        "correctAns": 4,
+        "hint": "Think about the pattern of numbers increasing by 3",
+        "level": "Easy"
+    },
+    {
+        "question": "20 + (90 ÷ 2) is equal to:",
+        "options": [
+            "1. 50",
+            "2. 55",
+            "3. 65",
+            "4. 60"
+        ],
+        "correctAns": 3,
+        "hint": "Perform the operations step by step according to standard rules",
+        "level": "Easy"
+    },
+    {
+        "question": "The product of 121 x 0 x 200 x 25 is:",
+        "options": [
+            "1. Zero",
+            "2. 1500",
+            "3. 4000",
+            "4. None of the above"
+        ],
+        "correctAns": 1,
+        "hint": "Consider the effect of multiplying by zero",
+        "level": "Hard"
     }
 ]

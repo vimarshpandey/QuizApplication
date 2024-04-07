@@ -26,7 +26,7 @@
                     <div class="container">
                         <h2 class="text-center mb-4">Leaderboard</h2>
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-striped text-center">
                                 <thead>
                                     <tr>
                                         <th>Rank</th>
@@ -35,26 +35,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>John Doe</td>
-                                        <td>90%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jane Smith</td>
-                                        <td>80%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>John Doe</td>
-                                        <td>90%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jane Smith</td>
-                                        <td>80%</td>
-                                    </tr>
+                                    {{#each score_data}}
+                                        <tr>
+                                            <td>{{addOne @index}}</td>
+                                            <td>{{this.name}}</td>
+                                            <td>{{this.score}}</td>
+                                        </tr>
+                                    {{/each}}
                                 </tbody>
                             </table>
                         </div>
@@ -66,35 +53,22 @@
                     <div class="container">
                         <h2 class="text-center mb-4">Correct Answers and Your Responses</h2>
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-striped text-center">
                                 <thead>
                                     <tr>
                                         <th>Question</th>
                                         <th>Correct Answer</th>
-                                        <th>Your Answer</th>
+                                        <th>Difficulty</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Question 1</td>
-                                        <td>Option A</td>
-                                        <td>Option A</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Question 2</td>
-                                        <td>Option B</td>
-                                        <td>Option C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Question 3</td>
-                                        <td>Option C</td>
-                                        <td>Option C</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Question 1</td>
-                                        <td>Option A</td>
-                                        <td>Option A</td>
-                                    </tr>
+                                    {{#each jsonData}}
+                                        <tr>
+                                            <td>Question {{addOne @index}}</td>
+                                            <td>{{this.correctAns}}</td>
+                                            <td>{{this.level}}</td>
+                                        </tr>
+                                    {{/each}}
                                 </tbody>
                             </table>
                         </div>

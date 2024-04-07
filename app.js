@@ -2,22 +2,44 @@ const path = require('path');
 const fs = require('fs');
 const express = require('express');
 const hbs = require('hbs');
-
 const app = express();
-
-const port = process.env.PORT||3000;
 
 const publicDirectoryPath = path.join(__dirname, '/public');
 const viewPath = path.join(__dirname, '/templet/views');
 const partialPath = path.join(__dirname, '/templet/partials');
 
+const port = process.env.PORT||3000;
+
 app.set('view engine', 'hbs');
 app.set('views', viewPath);
 hbs.registerPartials(partialPath);
-
 app.use(express.static(publicDirectoryPath));
 
-const jsonData = JSON.parse(fs.readFileSync('questions.json'));
+hbs.registerHelper('addOne', function(value) {
+    return value + 1;
+});
+
+const loadDataQuestion = () => {
+    try {
+        const dataString = fs.readFileSync('questions.json');
+        return JSON.parse(dataString);
+    }
+    catch (error) {
+        console.error('Error reading questions.json');
+        return [];
+    }
+};
+
+const loadDataQuizAppData = () => {
+    try {
+        const dataString = fs.readFileSync('quiz_app_data.json');
+        return JSON.parse(dataString);
+    }
+    catch (error) {
+        console.error('Error reading quiz_app_data.json');
+        return [];
+    }
+};
 
 app.get('', (req, res) =>
 {
@@ -28,24 +50,22 @@ app.get('', (req, res) =>
 
 
 app.get('/startquiz', (req, res) => {
-    fs.readFile('questions.json', (err, data) => {
-        if (err) throw err;
-        const jsonData = JSON.parse(data);
-        res.render('startquiz', { jsonData: jsonData, title: 'Arcade Quiz' });
-    });
+    const jsonData = loadDataQuestion();
+    res.render('startquiz', { jsonData: jsonData, title: 'Arcade Quiz' });
 });
 
 app.get('/result', (req, res) => {
-    // Extracting URL parameters
     const name = req.query.hiddenName;
     const givenAnswers = [];
+
     for (const key in req.query) {
         if (key.startsWith('q')) {
             givenAnswers.push(req.query[key]);
         }
     }
 
-    // Comparing given answers with correct answers
+    const jsonData = loadDataQuestion();
+
     let score = 0;
     jsonData.forEach((question, index) => {
         if (question.options[question.correctAns - 1] === givenAnswers[index]) {
@@ -55,13 +75,27 @@ app.get('/result', (req, res) => {
 
     const percentage = (score / jsonData.length) * 100;
 
-    // Rendering the result page with the score
+    var name_data = loadDataQuizAppData();
+
+    var duplicateData = name_data.find((data) => data.name === name);
+    if (duplicateData) {
+        return res.redirect('/404.hbs');
+    }
+
+    var updatedData = { name: name, score: score };
+
+    fs.writeFileSync('quiz_app_data.json', JSON.stringify([...name_data, updatedData]));
+
+    name_data.sort((a, b) => b.score - a.score);
+
     res.render('result', {
         title: 'Arcade Quiz',
         name: name,
         score: score,
         totalQuestions: jsonData.length,
-        percentage: percentage
+        percentage: percentage,
+        score_data: name_data,
+        jsonData:jsonData
     });
 });
 

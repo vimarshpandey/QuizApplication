@@ -47,7 +47,7 @@
                     {{#each jsonData}}
                         <div class="card mb-3">
                             <div class="card-body">
-                                <p>Hint for Question {{ @index }}:</p>
+                                <p>Hint for Question {{addOne @index }}:</p>
                                 <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#hint{{ @index }}" aria-expanded="false" aria-controls="hint{{ @index }}">
                                     Get Hint
                                 </button><br><br>
@@ -76,12 +76,11 @@
     <script>
         // Function to get URL parameter by name
         function getUrlParameter(name) {
-            name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
-            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+          return urlParams.get('name')
         };
-
+        
         // Get the name parameter from the URL
         var nameFromURL = getUrlParameter('name');
         console.log(nameFromURL)
