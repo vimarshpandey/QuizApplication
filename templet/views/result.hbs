@@ -12,8 +12,8 @@
 
         <section id="candidate-result" class="py-5">
             <div class="container">
-                <h2 class="text-center mb-4">Your Result</h2>
-                <div class="progress">
+                <h2 class="text-center mb-4">You got {{percentage}}% marks</h2>
+                <div class="progress" style="height: 25px;">
                     <div class="progress-bar bg-success" role="progressbar" style="width: {{percentage}}%;" aria-valuenow="{{percentage}}" aria-valuemin="0" aria-valuemax="100">{{percentage}}%</div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                                         <tr>
                                             <td>{{addOne @index}}</td>
                                             <td>{{this.name}}</td>
-                                            <td>{{this.score}}</td>
+                                            <td>{{this.percentage}}</td>
                                         </tr>
                                     {{/each}}
                                 </tbody>

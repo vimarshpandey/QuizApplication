@@ -77,16 +77,16 @@ app.get('/result', (req, res) => {
 
     var name_data = loadDataQuizAppData();
 
-    var duplicateData = name_data.find((data) => data.name === name);
-    if (duplicateData) {
-        return res.redirect('/404.hbs');
-    }
+    // var duplicateData = name_data.find((data) => data.name === name);
+    // if (duplicateData) {
+    //     return res.redirect('/404.hbs');
+    // }
 
-    var updatedData = { name: name, score: score };
+    var updatedData = { name: name, percentage: percentage };
 
     fs.writeFileSync('quiz_app_data.json', JSON.stringify([...name_data, updatedData]));
 
-    name_data.sort((a, b) => b.score - a.score);
+    name_data.sort((a, b) => b.percentage - a.percentage);
 
     res.render('result', {
         title: 'Arcade Quiz',
