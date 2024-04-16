@@ -1,0 +1,30 @@
+.slide-container {
+    padding: 20px;
+    display: flex;
+    width: calc(250px * 4);
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 4));
+    }
+}
+
+.slide-image {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-top: -150px;
+}
+
+.Cd {
+    border-radius: 100px;
+    padding: 0px 5px;
+    width: 190px;
+    margin: 30px;
+}

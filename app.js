@@ -48,16 +48,29 @@ app.get('', (req, res) =>
     })
 })
 
-
 app.get('/startquiz', (req, res) => {
+    const name = req.query.name;
+
+    const existingData = loadDataQuizAppData();
     const jsonData = loadDataQuestion();
-    res.render('startquiz', { jsonData: jsonData, title: 'Arcade Quiz' });
+
+    const isDuplicate = existingData.some((data) => data.name === name);
+
+    if (isDuplicate) {
+        res.redirect(`/startquiz?duplicate=true`);
+    } else {
+        res.render('startquiz', {
+            title: 'Arcade Quiz',
+            jsonData: jsonData
+        });
+    }
 });
 
 app.get('/result', (req, res) => {
-    const name = req.query.hiddenName;
+    const hiddenName = req.query.hiddenName;
     const givenAnswers = [];
 
+    // Collect all answers from the query parameters (assuming questions start with 'q')
     for (const key in req.query) {
         if (key.startsWith('q')) {
             givenAnswers.push(req.query[key]);
@@ -68,36 +81,35 @@ app.get('/result', (req, res) => {
 
     let score = 0;
     jsonData.forEach((question, index) => {
-        if (question.options[question.correctAns - 1] === givenAnswers[index]) {
+        const correctAnswer = question.options[question.correctAns - 1];
+        if (correctAnswer === givenAnswers[index]) {
             score++;
         }
     });
 
     const percentage = (score / jsonData.length) * 100;
 
-    var name_data = loadDataQuizAppData();
+    const existingData = loadDataQuizAppData();
 
-    // var duplicateData = name_data.find((data) => data.name === name);
-    // if (duplicateData) {
-    //     return res.redirect('/404.hbs');
-    // }
+    const updatedData = { name: hiddenName, percentage: percentage };
 
-    var updatedData = { name: name, percentage: percentage };
+    const newData = [...existingData, updatedData];
 
-    fs.writeFileSync('quiz_app_data.json', JSON.stringify([...name_data, updatedData]));
+    fs.writeFileSync('quiz_app_data.json', JSON.stringify(newData));
 
-    name_data.sort((a, b) => b.percentage - a.percentage);
+    newData.sort((a, b) => b.percentage - a.percentage);
 
     res.render('result', {
         title: 'Arcade Quiz',
-        name: name,
+        name: hiddenName,
         score: score,
         totalQuestions: jsonData.length,
         percentage: percentage,
-        score_data: name_data,
-        jsonData:jsonData
+        score_data: newData,
+        jsonData: jsonData
     });
 });
+
 
 app.get('/about', (req, res) =>
 {

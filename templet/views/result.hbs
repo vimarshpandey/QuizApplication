@@ -3,7 +3,6 @@
         <title>Arcade Quiz</title>
         <link rel="icon" href="/img/img1.png">
         <link rel="stylesheet" href="/css/styles.css">
-        <script src="../../public/js/app.js"></script>
     </head>
     <body>
         <div>
@@ -39,7 +38,7 @@
                                         <tr>
                                             <td>{{addOne @index}}</td>
                                             <td>{{this.name}}</td>
-                                            <td>{{this.percentage}}</td>
+                                            <td>{{this.percentage}}%</td>
                                         </tr>
                                     {{/each}}
                                 </tbody>
@@ -77,6 +76,55 @@
             </div>
             <div class="col-1"></div>
         </div>
+
+        <div class="container" style="height: 350px; margin: auto; position: relative; width: 90%; display: grid; place-items: center; overflow: hidden; margin-top: 50px;">
+            <h3>Benefits of giving Regular Quiz:</h3><hr>
+            <div class="slide-container">
+                <div class="slide-image">
+                    <div class="Cd text-center">
+                        <strong>Enhances Knowledge:</strong><br>
+                        Regular quizzes reinforce learning and deepen understanding of diverse topics.
+                    </div>
+                    <div class="Cd text-center">
+                        <strong>Encourages Revision:</strong><br>
+                        Quiz participation prompts frequent review and strengthens retention of material.
+                    </div>
+                    <div class="Cd text-center">
+                        <strong>Boosts Confidence:</strong><br>
+                        Success in quizzes cultivates self-assurance and motivates further engagement.
+                    </div>
+                    <div class="Cd text-center">
+                        <strong>Identifies Strengths and Weaknesses:</strong><br>
+                        Quizzes highlight areas for improvement and areas of expertise.
+                    </div>
+                    <div class="Cd text-center">
+                        <strong>Provides Immediate Feedback:</strong><br>
+                        Quizzes offer instant insights into comprehension and knowledge gaps.
+                    </div>
+                    <div class="Cd text-center">
+                        <strong>Engages Active Learning:</strong><br>
+                        Interacting with quiz content promotes active participation and critical thinking.
+                    </div>
+                    <div class="Cd text-center">
+                        <strong>Fosters Competition:</strong><br>
+                        Friendly competition in quizzes can spark enthusiasm and healthy challenge.
+                    </div>
+                    <div class="Cd text-center">
+                        <strong>Enhances Problem-Solving Skills:</strong><br>
+                        Quiz questions stimulate analytical thinking and problem-solving abilities.
+                    </div>
+                    <div class="Cd text-center">
+                        <strong>Creates a Fun Learning Experience:</strong><br>
+                        Quizzes transform learning into an enjoyable and interactive process.
+                    </div>
+                    <div class="Cd text-center">
+                        <strong>Builds a Learning Routine:</strong><br>
+                        Regular quizzes establish a consistent study habit and promote continuous learning.
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div>
             {{>footer}}
